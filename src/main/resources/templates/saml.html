@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="script-src 'sha256-oZhLbc2kO8b8oaYLrUc7uye1MgVKMyLtPqWR4WtKF+c='">
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <noscript>
+            <p>
+                <strong>Note:</strong> Since your browser does not support JavaScript,
+                you must press the Continue button once to proceed.
+            </p>
+        </noscript>
+        
+        <form action="https://mingle-cqa-sso.cqa.inforcloudsuite.com/inforsts/XMOPSDDECAQA_AX7/1F0B176FAE0949D8AA06AF3C327B5756/idp/samlSLO" method="post">
+            <div>
+                <input type="hidden" name="SAMLResponse" value="${saml}"/>
+                <input type="hidden" name="RelayState" value="${relayState}"/>
+            </div>
+            <noscript>
+                <div>
+                    <input type="submit" value="Continue"/>
+                </div>
+            </noscript>
+        </form>
+        
+        <script>window.onload = function() { document.forms[0].submit(); }</script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+server:
+ servlet.session.cookie.same-site: None
+ address: mySamlExampleSP.com
+ servlet.context-path: /springSSO
+ port: 8443
+ ssl:
+  enabled: true
+  key-store: C:\\Springboot\\demo\\src\\main\\resources\\springboot.p12
+  key-store-password: password
+  key-store-type: pkcs12
+  key-alias: springboot
+  key-password: password
+logging:
+ level.org.springframework: trace
+spring:
+  security:
+    saml2:
+      relyingparty:
+        registration:
+          springSSO:
+            entity-id: https://mysamlexamplesp.com:8443
+            singlelogout.binding: POST
+            signing.credentials: 
+              - private-key-location: classpath:credentials/local.key
+                certificate-location: classpath:credentials/local.crt
+            decryption.credentials: 
+              - private-key-location: classpath:credentials/local.key
+                certificate-location: classpath:credentials/local.crt
+            singlelogout.url: https://mysamlexamplesp.com:8443/springSSO/logout/saml2/slo
+            assertingparty:
+              metadata-uri: https://data-speed-5705.my.salesforce.com/.well-known/samlidp/SamlExample.xml
+              singlelogout.binding: REDIRECT 
