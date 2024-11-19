@@ -30,7 +30,7 @@ public class IndexController {
 	public String index(Model model, @AuthenticationPrincipal Saml2AuthenticatedPrincipal principal) {
 		if(principal!=null) {
 			model.addAttribute("userAttributes", principal.getAttributes());
-			String emailAddress = (String)principal.getAttributes().get("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn").get(0);
+			String emailAddress = (String)principal.getAttributes().get("identity/claims/upn").get(0);
 			model.addAttribute("emailAddress", emailAddress);
 		}
 		else {
